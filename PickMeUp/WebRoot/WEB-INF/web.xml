@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<servlet>
+		<servlet-name>RegisterCustomer</servlet-name>
+		<servlet-class>servlet.customer.RegisterCustomer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>servlet.customer.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateProfileServlet</servlet-name>
+		<servlet-class>servlet.customer.UpdateProfileServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddExpertServlet</servlet-name>
+		<servlet-class>servlet.admin.AddExpertServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>servlet.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EditExpertServlet</servlet-name>
+		<servlet-class>servlet.admin.EditExpertServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteExpertServlet</servlet-name>
+		<servlet-class>servlet.admin.DeleteExpertServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteCustomerServlet</servlet-name>
+		<servlet-class>servlet.admin.DeleteCustomerServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FindExpertServlet</servlet-name>
+		<servlet-class>servlet.customer.FindExpertServlet</servlet-class>
+	</servlet>
+
+
+
+
+
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>RegisterCustomer</servlet-name>
+		<url-pattern>/servlet/RegisterCustomer</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/servlet/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateProfileServlet</servlet-name>
+		<url-pattern>/servlet/UpdateProfileServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddExpertServlet</servlet-name>
+		<url-pattern>/servlet/AddExpertServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/servlet/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditExpertServlet</servlet-name>
+		<url-pattern>/servlet/EditExpertServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteExpertServlet</servlet-name>
+		<url-pattern>/servlet/DeleteExpertServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteCustomerServlet</servlet-name>
+		<url-pattern>/servlet/DeleteCustomerServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FindExpertServlet</servlet-name>
+		<url-pattern>/servlet/FindExpertServlet</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>AdminDashboardFilter</filter-name>
+		<filter-class>filters.AdminDashboardFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AdminDashboardFilter</filter-name>
+		<url-pattern>/web/admin/dashboard.jsp</url-pattern>
+	</filter-mapping>
+
+
+
+	<filter>
+		<filter-name>GetExpertFilter</filter-name>
+		<filter-class>filters.GetExpertFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>GetExpertFilter</filter-name>
+		<url-pattern>/web/admin/editExpert.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>LoginCheckerFilter</filter-name>
+		<filter-class>filters.LoginCheckerFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LoginCheckerFilter</filter-name>
+		<url-pattern>/web/secure/*</url-pattern>
+	</filter-mapping>
+
+
+	<welcome-file-list>
+		<welcome-file>/web/index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
