@@ -29,8 +29,8 @@
 			Now you can manage every domestic need at your door step. We provide
 			Human resources specialized in their fields at your service.
 		</p>
-		<a href="/PickMeUp/web/secure/hire.jsp">Hire</a>
-		<br />
+		<!--<a href="/PickMeUp/web/secure/hire.jsp">Hire</a>
+		--><br />
 	</div>
 	<br />
 
