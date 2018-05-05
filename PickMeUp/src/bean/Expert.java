@@ -11,6 +11,8 @@ public class Expert {
 
 	private String category;
 
+	private float rate;
+
 	public int getId() {
 		return id;
 	}
@@ -71,4 +73,13 @@ public class Expert {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	public float getRate() {
+		return rate;
+	}
+
+	public void setRate(float rate) {
+		this.rate = rate;
+	}
+
 }

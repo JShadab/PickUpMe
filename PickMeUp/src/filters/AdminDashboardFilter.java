@@ -10,13 +10,14 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import db.CustomerDAO;
-import db.ExpertDAO;
-import db.ServiceDAO;
-
+import bean.Booking;
 import bean.Customer;
 import bean.Expert;
-import bean.ServiceDetails;
+import bean.Feedback;
+import db.BookingDAO;
+import db.CustomerDAO;
+import db.ExpertDAO;
+import db.FeedbackDAO;
 
 public class AdminDashboardFilter implements Filter {
 
@@ -30,12 +31,14 @@ public class AdminDashboardFilter implements Filter {
 
 		List<Expert> allExperts = ExpertDAO.getAllExperts();
 		List<Customer> allCustomers = CustomerDAO.getAllCustomers();
-		List<ServiceDetails> allServices=ServiceDAO.getAllServices();
+		List<Booking> allBookings=BookingDAO.getAllBookings();
+		List<Feedback> allFeedbacks=FeedbackDAO.getAllFeedbacks();
 		
 		
 		req.setAttribute("allExperts", allExperts);
 		req.setAttribute("allCustomers", allCustomers);
-		req.setAttribute("allServices", allServices);
+		req.setAttribute("allBookings", allBookings);
+		req.setAttribute("allFeedbacks", allFeedbacks);
 
 		chain.doFilter(req, resp);
 

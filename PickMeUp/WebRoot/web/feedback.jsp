@@ -120,20 +120,24 @@ $(document).ready(function() {
 						industry's standard dummy text ever since the 1500s
 					</p>
 					<div class="feed-back-form">
-						<form>
+						<form action="/PickMeUp/servlet/FeedbackServlet" method="post">
 							<span>User Details</span>
 							<input type="text" value="First Name" onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'First Name';}">
+								onblur="if (this.value == '') {this.value = 'First Name';}"
+								name="firstName">
 							<input type="text" value="Last Name" onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'Last Name';}">
+								onblur="if (this.value == '') {this.value = 'Last Name';}"
+								name="lastName">
 							<input type="text" value="Email" onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'Email';}">
+								onblur="if (this.value == '') {this.value = 'Email';}"
+								name="email">
 							<input type="text" value="Phone No" onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'Phone No';}">
+								onblur="if (this.value == '') {this.value = 'Phone No';}"
+								name="contact">
 							<span>Is there anything you would like to tell us?</span>
 							<textarea type="text" onfocus="this.value = '';"
 								onblur="if (this.value == '') {this.value = 'Message...';}"
-								required="">Message...</textarea>
+								required="" name="message">Message...</textarea>
 							<input type="submit" value="submit">
 						</form>
 					</div>

@@ -43,6 +43,11 @@
     <servlet-name>HireExpertServlet</servlet-name>
     <servlet-class>servlet.customer.HireExpertServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <servlet-class>servlet.FeedbackServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -92,6 +97,10 @@
   <servlet-mapping>
     <servlet-name>HireExpertServlet</servlet-name>
     <url-pattern>/servlet/HireExpertServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <url-pattern>/servlet/FeedbackServlet</url-pattern>
   </servlet-mapping>
 
 	<filter>

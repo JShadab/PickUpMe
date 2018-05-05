@@ -15,7 +15,7 @@ public class ExpertDAO {
 
 		Connection connection = DBConnection.getConnection();
 
-		String insert = "Insert INTO expert (name, email, contact, address, pincode,  category) VALUES(?,?,?,?,?,?)";
+		String insert = "Insert INTO expert (name, email, contact, address, pincode, category,rate) VALUES(?,?,?,?,?,?,?)";
 
 		PreparedStatement ps = connection.prepareStatement(insert);
 
@@ -25,6 +25,7 @@ public class ExpertDAO {
 		ps.setString(4, expert.getAddress());
 		ps.setString(5, expert.getPincode());
 		ps.setString(6, expert.getCategory());
+		ps.setFloat(7, expert.getRate());
 
 		ps.executeUpdate();
 
@@ -39,7 +40,7 @@ public class ExpertDAO {
 
 		try {
 
-			String insert = "UPDATE expert SET name=?, contact=?, address=?, pincode=?, category=? WHERE id=?";
+			String insert = "UPDATE expert SET name=?, contact=?, address=?, pincode=?, category=?, rate=? WHERE id=?";
 
 			PreparedStatement ps = connection.prepareStatement(insert);
 
@@ -48,8 +49,8 @@ public class ExpertDAO {
 			ps.setString(3, expert.getAddress());
 			ps.setString(4, expert.getPincode());
 			ps.setString(5, expert.getCategory());
-
-			ps.setInt(6, expert.getId());
+			ps.setFloat(6, expert.getRate());
+			ps.setInt(7, expert.getId());
 
 			ps.executeUpdate();
 
@@ -87,7 +88,7 @@ public class ExpertDAO {
 
 		Connection connection = DBConnection.getConnection();
 
-		Expert customer = null;
+		Expert expert = null;
 
 		try {
 
@@ -101,15 +102,16 @@ public class ExpertDAO {
 
 			if (rs.next()) {
 
-				customer = new Expert();
+				expert = new Expert();
 
-				customer.setId(rs.getInt("id"));
-				customer.setAddress(rs.getString("address"));
-				customer.setContact(rs.getString("contact"));
-				customer.setEmail(rs.getString("email"));
-				customer.setName(rs.getString("name"));
-				customer.setPincode(rs.getString("pincode"));
-				customer.setCategory(rs.getString("category"));
+				expert.setId(rs.getInt("id"));
+				expert.setAddress(rs.getString("address"));
+				expert.setContact(rs.getString("contact"));
+				expert.setEmail(rs.getString("email"));
+				expert.setName(rs.getString("name"));
+				expert.setPincode(rs.getString("pincode"));
+				expert.setCategory(rs.getString("category"));
+				expert.setRate(rs.getFloat("rate"));
 			}
 
 			rs.close();
@@ -119,14 +121,14 @@ public class ExpertDAO {
 			e.printStackTrace();
 		}
 
-		return customer;
+		return expert;
 	}
 
 	public static Expert getExpert(String email, String password) {
 
 		Connection connection = DBConnection.getConnection();
 
-		Expert customer = null;
+		Expert expert = null;
 
 		try {
 
@@ -141,15 +143,16 @@ public class ExpertDAO {
 
 			if (rs.next()) {
 
-				customer = new Expert();
+				expert = new Expert();
 
-				customer.setId(rs.getInt("id"));
-				customer.setAddress(rs.getString("address"));
-				customer.setContact(rs.getString("contact"));
-				customer.setEmail(rs.getString("email"));
-				customer.setName(rs.getString("name"));
-				customer.setPincode(rs.getString("pincode"));
-				customer.setCategory(rs.getString("category"));
+				expert.setId(rs.getInt("id"));
+				expert.setAddress(rs.getString("address"));
+				expert.setContact(rs.getString("contact"));
+				expert.setEmail(rs.getString("email"));
+				expert.setName(rs.getString("name"));
+				expert.setPincode(rs.getString("pincode"));
+				expert.setCategory(rs.getString("category"));
+				expert.setRate(rs.getFloat("rate"));
 			}
 
 			rs.close();
@@ -159,16 +162,16 @@ public class ExpertDAO {
 			e.printStackTrace();
 		}
 
-		return customer;
+		return expert;
 	}
 
 	public static List<Expert> getAllExperts() {
 
 		Connection connection = DBConnection.getConnection();
 
-		List<Expert> customers = new ArrayList<Expert>();
+		List<Expert> experts = new ArrayList<Expert>();
 
-		Expert customer;
+
 		try {
 
 			String insert = "SELECT * FROM expert";
@@ -179,17 +182,19 @@ public class ExpertDAO {
 
 			while (rs.next()) {
 
-				customer = new Expert();
+				Expert expert = new Expert();
 
-				customer.setId(rs.getInt("id"));
-				customer.setAddress(rs.getString("address"));
-				customer.setContact(rs.getString("contact"));
-				customer.setEmail(rs.getString("email"));
-				customer.setName(rs.getString("name"));
-				customer.setPincode(rs.getString("pincode"));
-				customer.setCategory(rs.getString("category"));
+				expert.setId(rs.getInt("id"));
+				expert.setAddress(rs.getString("address"));
+				expert.setContact(rs.getString("contact"));
+				expert.setEmail(rs.getString("email"));
+				expert.setName(rs.getString("name"));
+				expert.setPincode(rs.getString("pincode"));
+				expert.setCategory(rs.getString("category"));
+				
+				expert.setRate(rs.getFloat("rate"));
 
-				customers.add(customer);
+				experts.add(expert);
 
 			}
 
@@ -200,16 +205,16 @@ public class ExpertDAO {
 			e.printStackTrace();
 		}
 
-		return customers;
+		return experts;
 	}
 
 	public static List<Expert> getAllExpertsByPincode(String key, String pincode) {
 
 		Connection connection = DBConnection.getConnection();
 
-		List<Expert> customers = new ArrayList<Expert>();
+		List<Expert> experts = new ArrayList<Expert>();
 		key = "'%" + key + "%'";
-		Expert customer;
+		Expert expert;
 		try {
 
 			String insert = "SELECT * FROM expert WHERE category LIKE " + key
@@ -223,17 +228,18 @@ public class ExpertDAO {
 
 			while (rs.next()) {
 
-				customer = new Expert();
+				expert = new Expert();
 
-				customer.setId(rs.getInt("id"));
-				customer.setAddress(rs.getString("address"));
-				customer.setContact(rs.getString("contact"));
-				customer.setEmail(rs.getString("email"));
-				customer.setName(rs.getString("name"));
-				customer.setPincode(rs.getString("pincode"));
-				customer.setCategory(rs.getString("category"));
+				expert.setId(rs.getInt("id"));
+				expert.setAddress(rs.getString("address"));
+				expert.setContact(rs.getString("contact"));
+				expert.setEmail(rs.getString("email"));
+				expert.setName(rs.getString("name"));
+				expert.setPincode(rs.getString("pincode"));
+				expert.setCategory(rs.getString("category"));
+				expert.setRate(rs.getFloat("rate"));
 
-				customers.add(customer);
+				experts.add(expert);
 
 			}
 
@@ -244,7 +250,7 @@ public class ExpertDAO {
 			e.printStackTrace();
 		}
 
-		return customers;
+		return experts;
 	}
 
 }

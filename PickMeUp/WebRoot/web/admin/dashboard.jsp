@@ -100,7 +100,7 @@ function init() {
 		<script src="/PickMeUp/web/js/easyResponsiveTabs.js">
 </script>
 	</head>
-<body onload="init()">
+	<body onload="init()">
 		<div>
 			<jsp:include page="/web/admin/header.jsp" />
 		</div>
@@ -131,7 +131,10 @@ function init() {
 								Payment Details
 							</li>
 							<li>
-								Logout
+								Feedbacks
+							</li>
+							<li>
+								<a href="/PickMeUp/servlet/LogoutServlet">Logout</a>
 							</li>
 
 
@@ -418,39 +421,46 @@ function init() {
 									<table class="table table-striped">
 										<tr>
 											<th>
-												Name
+												Customer Email
 											</th>
 											<th>
-												Email
+												Expert Email
 											</th>
 											<th>
-												Address
+												Location
 											</th>
 											<th>
-												Contact
+												Timing
 											</th>
 											<th>
-												Edit | Delete
+												Charge
+											</th>
+											<th>
+												Status
 											</th>
 										</tr>
-										<c:forEach var="service" items="${allServices}">
+										<c:forEach var="booking" items="${allBookings}">
 											<tr>
 												<td>
-													${service.name}
+													${booking.customerEmail}
 												</td>
 												<td>
-													${service.email}
+													${booking.expertEmail}
 												</td>
 												<td>
-													${service.address}
+													${booking.location}
 												</td>
 												<td>
-													${service.contact}
+													${booking.timing}
 												</td>
 												<td>
-													<a href="" class="btn-warning">Edit</a> |
-													<a href="" class="btn btn-danger">Delete</a>
+													Rs. ${booking.charge}
 												</td>
+												<td>
+													${booking.status}
+												</td>
+
+
 											</tr>
 										</c:forEach>
 									</table>
@@ -488,7 +498,68 @@ function init() {
 									</table>
 								</div>
 							</div>
+							<div>
+								<div class="category">
+									<div class="category-img">
+										<img src="images/cat2.png" title="image" alt="" />
+									</div>
+									<div class="category-info">
+										<h4>
+											Feedbacks
+										</h4>
 
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="sub-categories">
+									<table class="table .table-bordered">
+										<thead>
+											<tr>
+												<th>
+													First Name
+												</th>
+												<th>
+													Last Name
+												</th>
+												<th>
+													Email
+												</th>
+												<th>
+													Contact
+												</th>
+												<th>
+													Feedback
+												</th>
+
+											</tr>
+										</thead>
+										<tbody>
+
+											<c:forEach var="feedback" items="${allFeedbacks}">
+
+												<tr>
+													<td>
+														${feedback.firstName}
+													</td>
+													<td>
+														${feedback.lastName}
+													</td>
+													<td>
+														${feedback.email}
+													</td>
+													<td>
+														${feedback.contact}
+													</td>
+													<td>
+														${feedback.message}
+													</td>
+
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
 
 
 						</div>

@@ -111,7 +111,7 @@ $(document).ready(function() {
 					<input type="hidden" name="key" value="${key}" />
 					Pincode:
 					<input type="text" name="pincode" value="${pincode}" />
-					<input type="submit"  value="Find">
+					<input type="submit" value="Find">
 				</form>
 
 			</div>
@@ -140,6 +140,9 @@ $(document).ready(function() {
 								Pincode
 							</th>
 							<th>
+								Rate(Rs.)
+							</th>
+							<th>
 								Hire
 							</th>
 						</tr>
@@ -162,10 +165,13 @@ $(document).ready(function() {
 									${expert.address}
 								</td>
 								<td>
+									${rate.address}
+								</td>
+								<td>
 									${expert.pincode}
 								</td>
 								<td>
-									<a href="/servlet/HireExpertServlet?experId=${expert.id}">Hire</a>
+									<a href="/PickMeUp/servlet/HireExpertServlet?experId=${expert.id}">Hire</a>
 								</td>
 							</tr>
 						</c:forEach>

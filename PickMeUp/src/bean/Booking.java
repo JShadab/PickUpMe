@@ -34,11 +34,11 @@ public class Booking {
 		this.timing = timing;
 	}
 
-	public String getCharge() {
+	public float getCharge() {
 		return charge;
 	}
 
-	public void setCharge(String charge) {
+	public void setCharge(float charge) {
 		this.charge = charge;
 	}
 
@@ -64,7 +64,7 @@ public class Booking {
 	private String expertEmail;
 	private String timing;
 	private String location;
-	private String charge;
+	private float charge;
 	private String status;
 
 }
