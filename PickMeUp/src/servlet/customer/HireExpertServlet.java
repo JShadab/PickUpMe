@@ -13,30 +13,20 @@ import bean.Customer;
 import bean.Expert;
 import db.ExpertDAO;
 
-public class FindExpertServlet extends HttpServlet {
+public class HireExpertServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		String key = req.getParameter("key");
-		String pincode = req.getParameter("pincode");
+		int expertId = Integer.parseInt(req.getParameter("experId"));
 
 		Customer customer = Utility.getCustomer(req);
 
 		if (customer != null) {
 
-			if (pincode == null || pincode.isEmpty()) {
-
-				pincode = customer.getPincode();
-			}
-
-			List<Expert> experts = ExpertDAO.getAllExpertsByPincode(key,
-					pincode);
-
-
-			req.setAttribute("key", key);
-			req.setAttribute("experts", experts);
-			req.setAttribute("pincode", pincode);
+			Expert expert = ExpertDAO.getExpert(expertId);
+			
+			
 
 			req.getRequestDispatcher("/web/secure/findExpert.jsp").forward(req,
 					resp);

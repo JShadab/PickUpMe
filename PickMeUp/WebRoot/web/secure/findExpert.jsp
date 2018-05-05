@@ -107,9 +107,11 @@ $(document).ready(function() {
 		<div class="container">
 
 			<div style="text-align: center;">
-				<form>
+				<form action="/PickMeUp/servlet/FindExpertServlet" method="get">
+					<input type="hidden" name="key" value="${key}" />
 					Pincode:
 					<input type="text" name="pincode" value="${pincode}" />
+					<input type="submit"  value="Find">
 				</form>
 
 			</div>
@@ -163,7 +165,7 @@ $(document).ready(function() {
 									${expert.pincode}
 								</td>
 								<td>
-									<a href="${expert.id}" >Hire</a>
+									<a href="/servlet/HireExpertServlet?experId=${expert.id}">Hire</a>
 								</td>
 							</tr>
 						</c:forEach>

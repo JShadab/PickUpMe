@@ -39,6 +39,11 @@
 		<servlet-name>FindExpertServlet</servlet-name>
 		<servlet-class>servlet.customer.FindExpertServlet</servlet-class>
 	</servlet>
+  <servlet>
+    <servlet-name>HireExpertServlet</servlet-name>
+    <servlet-class>servlet.customer.HireExpertServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -84,6 +89,10 @@
 		<servlet-name>FindExpertServlet</servlet-name>
 		<url-pattern>/servlet/FindExpertServlet</url-pattern>
 	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HireExpertServlet</servlet-name>
+    <url-pattern>/servlet/HireExpertServlet</url-pattern>
+  </servlet-mapping>
 
 	<filter>
 		<filter-name>AdminDashboardFilter</filter-name>
